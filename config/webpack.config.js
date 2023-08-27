@@ -1,14 +1,20 @@
-require("dotenv").config();
-const path = require("path");
-const Dotenv = require("dotenv-webpack");
-const HtmlWebpack = require("html-webpack-plugin");
-const CopyWebpack = require("copy-webpack-plugin");
-const ProgressBar = require("progress-bar-webpack-plugin");
-const ForkTsChecker = require("fork-ts-checker-webpack-plugin");
+import dotenv from 'dotenv';
+dotenv.config();
+
+import path from 'path';
+import { fileURLToPath } from 'url';
+import Dotenv from 'dotenv-webpack';
+import HtmlWebpack from 'html-webpack-plugin';
+import CopyWebpack from 'copy-webpack-plugin';
+import ProgressBar from 'progress-bar-webpack-plugin';
+import ForkTsChecker from 'fork-ts-checker-webpack-plugin'
 
 const { PORT = 8085 } = process.env;
+const __filename = fileURLToPath(import.meta.url);
 
-module.exports = {
+const __dirname = path.dirname(__filename);
+
+export default {
   stats: "minimal",
 
   mode: "development",
@@ -48,9 +54,9 @@ module.exports = {
         test: /\.svg$/,
         use: ["svg-inline-loader"],
       },
-      { 
-        test: /\.css$/, 
-        use: ["style-loader", "css-loader"] 
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
       },
     ],
   },

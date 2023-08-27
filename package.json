@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "webpack.config.js",
+  "type": "module",
   "scripts": {
     "start": "NODE_ENV=development webpack serve --config ./config/webpack.config.js",
     "build": "NODE_ENV=development webpack --config ./config/webpack.config.js",
